@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>致敬我们的抗议英雄</title>
+<style>
+	*{margin:0;padding:0;}
+	li{list-style:none;}
+	i{font-style:normal;}
+	body{
+	background-color:#C0C0C0;
+	}
+	#wrap{
+		position:relative;
+		width:600px;
+		height:400px;
+		margin:50px auto;
+	
+		
+	}
+	.title,.num{
+		position:absolute;
+		width:100%;
+		left:0;
+		line-height: 30px;
+		text-align: center;
+		z-index: 99;
+		color: #FFF;
+		background-color: rgba(0,0,0,.5);
+	}
+	.num{
+		top:0;
+	}
+	.title{
+		bottom:0;
+	}
+	ul li{
+		position: absolute;
+		display: none;
+		top:0;
+		left:0;
+		width:100%;
+		height: 400px;
+	}
+	ul li.on{display: block;}
+	ul li img{width: 100%;height: 100%;overflow: hidden;}
+	.btn span{
+		position: absolute;
+		padding: 15px 10px;
+		color: #FFF;
+		top:50%;
+		background-color: rgba(0,0,0,.5);
+		cursor: pointer;
+	}
+	.btn .left{left: 0;}
+	.btn .right{right: 0;}
+	
+	</style>
+</head>
+<body>
+<div id="wrap">
+<div class="num">他们都是我们心中的英雄——第<i>-</i>张</div>
+<ul>
+<li class="on"><img src="images/1.jpeg" alt=""></li>
+<li><img src="images/2.jpeg" alt=""></li>
+<li><img src="images/3.jpeg" alt=""></li>
+<li><img src="images/4.jpeg" alt=""></li>
+<li><img src="images/5.jpeg" alt=""></li>
+<li><img src="images/6.jpeg" alt=""></li>
+<li><img src="images/7.jpeg" alt=""></li>
+<li><img src="images/8.jpeg" alt=""></li>
+
+</ul>
+<div class="btn">
+<span class="left">&lt;</span>
+<span class="right">&gt;</span>
+</div>
+<div class="title"></div>
+</div>
+<script>
+let aLi=document.getElementsByTagName("li"),
+	aSpan=document.getElementsByTagName("span"),
+	oTitle=document.getElementsByClassName("title")[0],
+	oI=document.getElementsByTagName("i")[0],
+	length= aLi.length,
+	i=0,
+	arr1=["1","2","3","4","5","6","7","8"],
+	arr2=["白衣天使为我们扛起了责任","你在我们心中是最美的","乐观的氛围也感染到了我们","与时间赛跑，见证中国速度","我们的吹哨人李文亮医生，也是我们的英雄","夫妻共同抗疫情","国家的顶梁柱：钟南山院士，我们真正要追的星","我们的英雄们",];
+	aSpan[1].onclick=function(){
+		aLi[i].className="";
+		i++;
+		if(i>=length){
+			i=0;
+		}
+		aLi[i].className="on";
+		oI.innerHTML+arr1[i];
+		oTitle.innerHTML=arr2[i];
+	}
+	aSpan[0].onclick=function(){
+		aLi[i].className="";
+		i--;
+		if(i<0){i=length-1;}
+		aLi[i].className="on";
+		oI.innerHTML=arr1[i];
+		oTitle.innerHTML=arr2[i];
+	}
+	
+</script>
+</body>
+</html>
